@@ -20,7 +20,6 @@ const ErrorPage = () => {
                Back to homepage
              </Link>
            </div>
-         
        </section> 
     );
 };

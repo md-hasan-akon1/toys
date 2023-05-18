@@ -1,11 +1,13 @@
 import React from 'react';
 import UseTitle from '../../CostomHook/UseTitle';
+import Banner from '../../Sheared/Banner/Banner';
+
 
 const Home = () => {
     UseTitle('home')
     return (
         <div>
-            <h1>this is home</h1>
+            <Banner></Banner>
         </div>
     );
 };

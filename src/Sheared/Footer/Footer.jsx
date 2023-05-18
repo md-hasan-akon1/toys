@@ -3,7 +3,13 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            dfdf
+          <div>
+
+
+            
+          </div>
+          <div></div>
+          <div></div>
         </div>
     );
 };
