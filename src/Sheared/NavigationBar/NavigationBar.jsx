@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-const navItems = <>
-    <li><Link to="/">Home</Link> </li>
-    <li> <Link to="/">All toys</Link> </li>
-    <li> <Link to="/">My toys</Link></li>
-    <li> <Link to="/">profile</Link></li>
-    <li> <Link to="/">Blog</Link></li>
-    <li> <Link to="/login">LogIn</Link></li>
-</>
+import { authContext } from '../../AuthProvider/AuthProvider';
+
 const NavigationBar = () => {
+    const { user,logout } = useContext(authContext)
+    console.log(user)
+
+    const handelLogOut=()=>{
+        logout()
+    }
+    const navItems = <>
+        <li><Link to="/">Home</Link> </li>
+        <li> <Link to="/blog">Blog</Link></li>
+        {
+            user ? <><li> <Link to="/allToys">All toys</Link> </li>
+                <li> <Link to="/myToys">My toys</Link></li>
+                <li> <button onClick={handelLogOut}>logOut</button></li></> : <><li> <Link to="/login">LogIn</Link></li> <li> <Link to="/register">Register</Link></li></>
+        }
+
+
+    </>
     return (
         <div>
             <div className="navbar bg-green-200 rounded-lg my-5">
@@ -19,7 +30,7 @@ const NavigationBar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {navItems}
-                            <li> <Link to="/">log out</Link></li>
+
                         </ul>
                     </div>
                     <div className='flex justify-center items-center gap-4'>
@@ -30,11 +41,17 @@ const NavigationBar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navItems}
-                        <li> <Link to="/">log out</Link></li>
+
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    <div>
+                        {
+                            user?.photoURL ? <div >
+                                <img title={user.displayName} className="w-12 rounded-full" src={user.photoURL} />
+                            </div> : ""
+                        }
+                    </div>
                 </div>
             </div>
         </div>
