@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 const navItems = <>
     <li><Link to="/">Home</Link> </li>
-    <li> <Link to="/about">About</Link> </li>
-    <li> <Link to="/signup">sign up</Link></li>
+    <li> <Link to="/">All toys</Link> </li>
+    <li> <Link to="/">My toys</Link></li>
+   <li> <Link to="/">profile</Link></li>
+   <li> <Link to="/">Blog</Link></li>
 </>
 const NavigationBar = () => {
     return (
@@ -16,6 +18,7 @@ const NavigationBar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {navItems}
+                            <li> <Link to="/">log out</Link></li>
                         </ul>
                     </div>
                    <div className='flex justify-center items-center gap-4'>
@@ -26,6 +29,7 @@ const NavigationBar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navItems}
+                        <li> <Link to="/">log out</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
