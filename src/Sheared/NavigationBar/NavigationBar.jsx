@@ -6,6 +6,7 @@ const navItems = <>
     <li> <Link to="/">My toys</Link></li>
    <li> <Link to="/">profile</Link></li>
    <li> <Link to="/">Blog</Link></li>
+   <li> <Link to="/login">LogIn</Link></li>
 </>
 const NavigationBar = () => {
     return (
