@@ -50,7 +50,7 @@ const Register = () => {
             displayName: name,
             photoURL: photo
         })
-            .then(() => { })
+            .then(() => {navigate('/') })
             .catch(error => console.log(error))
     }
 
@@ -69,7 +69,7 @@ const Register = () => {
     const handelGithubLogin = () => {
         githubLogin()
             .then(result => {
-                
+                navigate('/')
                 console.log(result.user)
             })
             .catch(error => console.log(error))
@@ -79,7 +79,7 @@ const Register = () => {
     const handelGoogleLogin = () => {
         googleLogin()
             .then(result => {
-               
+                navigate('/')
                 console.log(result.user)
             })
             .catch(error => console.log(error))
