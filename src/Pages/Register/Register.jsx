@@ -3,7 +3,9 @@ import { FaGithub, FaGoogle, } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import UseTitle from '../../CostomHook/UseTitle';
 const Register = () => {
+    UseTitle('register')
     const { createUser, googleLogin, githubLogin } = useContext(authContext);
     const [error, setError] = useState('');
     const [passwordCheck, setPassword] = useState('');

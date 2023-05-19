@@ -2,7 +2,9 @@ import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle, } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
+import UseTitle from '../../CostomHook/UseTitle';
 const Login = () => {
+    UseTitle('log in')
     const { signIn, googleLogin, githubLogin } = useContext(authContext)
     const navigate = useNavigate()
     const location = useLocation()

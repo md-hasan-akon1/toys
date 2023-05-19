@@ -3,19 +3,25 @@ import { Link } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
 
 const NavigationBar = () => {
-    const { user,logout } = useContext(authContext)
-    console.log(user)
+    const { user, logout } = useContext(authContext)
+   
 
-    const handelLogOut=()=>{
+    const handelLogOut = () => {
         logout()
     }
     const navItems = <>
         <li><Link to="/">Home</Link> </li>
         <li> <Link to="/blog">Blog</Link></li>
+        <li> <Link to="/allToys">All toys</Link> </li>
+        <li> <Link to="/myToys">My toys</Link></li>
+        <li> <Link to="/addtoy">Add Toy</Link></li>
         {
-            user ? <><li> <Link to="/allToys">All toys</Link> </li>
-                <li> <Link to="/myToys">My toys</Link></li>
-                <li> <button onClick={handelLogOut}>logOut</button></li></> : <><li> <Link to="/login">LogIn</Link></li> <li> <Link to="/register">Register</Link></li></>
+            user ? <>
+                   <li> <button onClick={handelLogOut}>logOut</button></li>
+                 </>: 
+                 <><li> <Link to="/login">LogIn</Link></li>
+                    <li> <Link to="/register">Register</Link></li>
+                  </>
         }
 
 
