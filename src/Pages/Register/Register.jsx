@@ -87,7 +87,7 @@ const Register = () => {
     return (
         <div className=' border grid grid-cols-1 lg:grid-cols-2  mx-auto rounded-lg'>
             <div>
-                <img className='h-full lg:w-[100%] rounded-lg hidden lg:block  ' src="https://i.ibb.co/3RhgJG0/Login-8.jpg" alt="" />
+                <img className='h-full lg:w-[100%] rounded-lg hidden lg:block m-auto  ' src="https://i.ibb.co/3RhgJG0/Login-8.jpg" alt="" />
 
                 <img className=' h-28 mx-auto lg:hidden' src="https://i.ibb.co/hDhzhxs/register.png" alt="" />
                 <h1 className='text-3xl font-bold font-mono text-center lg:hidden'>WellCome Our Shop <br />Please Register</h1>
@@ -163,10 +163,10 @@ const Register = () => {
                     </span>
                     <button className="btn btn-primary mt-4 w-full mx-auto"> <input type="submit" value="Register" /></button>
                     <input type="checkbox" name="" id="" />
-                    <span>Accept<Link className='text-blue-700 font-bold'> Terms and Condition</Link> </span>
+                    <span>Accept<Link to='/terms' className='text-blue-700 font-bold'> Terms and Condition</Link> </span>
 
                     <br />
-                    <span>Already Have An Account<Link to={'/register'} className="btn btn-link">LogIn</Link></span>
+                    <span>Already Have An Account<Link to={'/login'} className="btn btn-link">LogIn</Link></span>
 
 
                     <div className='flex justify-center items-center gap-2'>

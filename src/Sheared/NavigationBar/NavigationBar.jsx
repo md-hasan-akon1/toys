@@ -4,9 +4,9 @@ const navItems = <>
     <li><Link to="/">Home</Link> </li>
     <li> <Link to="/">All toys</Link> </li>
     <li> <Link to="/">My toys</Link></li>
-   <li> <Link to="/">profile</Link></li>
-   <li> <Link to="/">Blog</Link></li>
-   <li> <Link to="/login">LogIn</Link></li>
+    <li> <Link to="/">profile</Link></li>
+    <li> <Link to="/">Blog</Link></li>
+    <li> <Link to="/login">LogIn</Link></li>
 </>
 const NavigationBar = () => {
     return (
@@ -22,10 +22,10 @@ const NavigationBar = () => {
                             <li> <Link to="/">log out</Link></li>
                         </ul>
                     </div>
-                   <div className='flex justify-center items-center gap-4'>
-                    <img className='h-10 hidden rounded-full lg:block' src="https://i.ibb.co/KFYrMzw/logo.jpg" alt="" />
-                    <h3 className='font-mono font-bold lg:text-3xl'>Kid Car Toys Shop </h3>
-                   </div>
+                    <div className='flex justify-center items-center gap-4'>
+                        <img className='h-10 hidden rounded-full lg:block' src="https://i.ibb.co/KFYrMzw/logo.jpg" alt="" />
+                        <h3 className='font-mono font-bold lg:text-3xl'>Kid Car Toys Shop </h3>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
