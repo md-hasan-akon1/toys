@@ -12,7 +12,7 @@ const UpDate = () => {
     const id = useParams().id;
     const loaderData = useLoaderData()
     const { availableQuantity, detailDescription, email, name, picture, price, rating, seller_name, subcategory, _id } = loaderData[0];
-    UseTitle('add toy')
+    UseTitle('update-my toy')
     const [updateData, setUpdateData] = useState({})
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {

@@ -45,6 +45,7 @@ const onSubmit = data =>{
   
     return (
         <div className='bg-gray-100 rounded-lg'>
+            <h1 className='text-center text-3xl font-bold'>Added A Toy Details</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/* photo url */}
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 m-4 '>

@@ -1,9 +1,11 @@
 import { Rating } from '@smastrom/react-rating';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import UseTitle from '../../CostomHook/UseTitle';
 
 const AddedDataDetail = () => {
     const id = useParams().id;
+    UseTitle('Added Data-all data')
     const [singleData, setSingleData] = useState({})
     useEffect(() => {
         fetch(`http://localhost:5000/addDataDetail/${id}`)

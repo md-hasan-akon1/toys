@@ -21,7 +21,7 @@ const AllToys = () => {
     }
     return (
         <div className='w-full ' >
-            <div className=' w-1/3 mx-auto'>
+            <div className=' lg:w-1/3 mx-auto'>
                 <input
                     className='border py-3 px-20 mb-5 rounded'
                     onChange={(e) => setSearchText(e.target.value)}
