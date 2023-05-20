@@ -2,19 +2,18 @@ import { Rating } from '@smastrom/react-rating';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ViewDetails = () => {
+const AddedDataDetail = () => {
     const id = useParams().id;
     const [singleData, setSingleData] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/viewDetail/${id}`)
+        fetch(`http://localhost:5000/addDataDetail/${id}`)
             .then(res => res.json())
             .then(data => setSingleData(data[0]))
     }, [])
     const { availableQuantity,subcategory, detailDescription, name, picture, price, rating, _id } = singleData;
-  
     return (
-        <div>
-            <div className="flex flex-col lg:flex-row  card card-side bg-sky-100 shadow-xl">
+        <div className='w-full '>
+            <div className="lg:w-1/2  mx-auto flex flex-col lg:flex-row  card card-side bg-sky-100 shadow-xl">
                 <figure><img src={picture} alt="Movie" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-3xl font-bold font-mono text-red-600">Car Name: {name}</h2>
@@ -41,4 +40,4 @@ const ViewDetails = () => {
     );
 };
 
-export default ViewDetails;
+export default AddedDataDetail;

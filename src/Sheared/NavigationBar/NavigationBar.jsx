@@ -4,7 +4,7 @@ import { authContext } from '../../AuthProvider/AuthProvider';
 
 const NavigationBar = () => {
     const { user, logout } = useContext(authContext)
-   
+
 
     const handelLogOut = () => {
         logout()
@@ -13,15 +13,17 @@ const NavigationBar = () => {
         <li><Link to="/">Home</Link> </li>
         <li> <Link to="/blog">Blog</Link></li>
         <li> <Link to="/allToys">All toys</Link> </li>
-        <li> <Link to="/myToys">My toys</Link></li>
-        <li> <Link to="/addtoy">Add Toy</Link></li>
+
         {
             user ? <>
-                   <li> <button onClick={handelLogOut}>logOut</button></li>
-                 </>: 
-                 <><li> <Link to="/login">LogIn</Link></li>
+                <li> <Link to="/myToys">My toys</Link></li>
+                <li> <Link to="/addtoy">Add Toy</Link></li>
+                <li> <button onClick={handelLogOut}>logOut</button></li>
+            </> :
+                <>
+                    <li> <Link to="/login">LogIn</Link></li>
                     <li> <Link to="/register">Register</Link></li>
-                  </>
+                </>
         }
 
 

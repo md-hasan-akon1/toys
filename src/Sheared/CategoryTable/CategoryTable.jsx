@@ -24,6 +24,8 @@ const CategoryTable = ({ data }) => {
                    
                     <div className="card-actions justify-end">
                        <Link to={`/viewDetail/${_id}`}> <button  className="btn btn-primary">View Detail</button></Link>
+
+                       
                     </div>
                 </div>
             </div>
