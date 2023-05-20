@@ -19,7 +19,7 @@ const CategoryTab = () => {
     return (
         <div>
             <Tabs>
-                <TabList>
+                <TabList className='bg-black text-white font-bold font-serif'>
                     <Tab onClick={() => handelCategory("Sports Cars")}>Sports Cars</Tab>
                     <Tab onClick={() => handelCategory("Off-Road Vehicles")}>Off-Road Vehicles</Tab>
                     <Tab onClick={() => handelCategory("Vintage Cars")}>Vintage Cars</Tab>
@@ -36,10 +36,24 @@ const CategoryTab = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 2</h2>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                        {
+                            CategoryData.map(dt => <CategoryTable
+                                key={dt._id}
+                                data={dt}
+                            ></CategoryTable>)
+                        }
+                    </div>
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 3</h2>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                        {
+                            CategoryData.map(dt => <CategoryTable
+                                key={dt._id}
+                                data={dt}
+                            ></CategoryTable>)
+                        }
+                    </div>
                 </TabPanel>
             </Tabs>
         </div>

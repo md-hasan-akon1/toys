@@ -11,6 +11,7 @@ import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/MyToys/Mytoys";
 import PrivetRout from "../PrivetRout/PrivetRout";
 import AddToy from "../Pages/AddToy/AddToy";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
   const router = createBrowserRouter([
     {
@@ -45,6 +46,11 @@ import AddToy from "../Pages/AddToy/AddToy";
         {
           path:'/addtoy',
           element:<PrivetRout><AddToy></AddToy></PrivetRout>
+        },
+        {
+          path:'/viewDetail/:id',
+          element:<ViewDetails></ViewDetails>,
+
         }
       ]
     },
