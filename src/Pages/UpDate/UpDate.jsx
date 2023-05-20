@@ -3,46 +3,50 @@ import UseTitle from '../../CostomHook/UseTitle';
 import { useForm } from "react-hook-form";
 import { authContext } from '../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
-const AddToy = () => {
-    const {user}=useContext(authContext)
-    const email=user?.email;
-    const name=user?.displayName;
+import { useLoaderData, useParams } from 'react-router-dom';
+
+const UpDate = () => {
+    const { user } = useContext(authContext)
+
+
+    const id = useParams().id;
+    const loaderData = useLoaderData()
+    const { availableQuantity, detailDescription, email, name, picture, price, rating, seller_name, subcategory, _id } = loaderData[0];
     UseTitle('add toy')
-    const [addData,setAddData]=useState({})
+    const [updateData, setUpdateData] = useState({})
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-const onSubmit = data =>{
-    fetch('http://localhost:5000/addtoys',{
-        method:'POST',
-        headers:{
-            'content-type':'application/json'
-        },
-        body:JSON.stringify(data)
-    })
-    .then(res=>res.json())
-    .then(data=>{
-        
-    if(data.insertedId){
-        <ToastContainer />
-        toast.success('🦄 Wow so easy!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            });
-       console.log(data)
-    }
-    })
-    .catch(error=>console.log(error))
-};
+    const onSubmit = data => {
+        fetch(`http://localhost:5000/update/${_id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
 
-   
-        
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    <ToastContainer />
+                    toast.success('🦄 Wow so easy!', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }
+            })
+            .catch(error => console.log(error))
 
-  
+
+
+    };
+
+
     return (
         <div className='bg-gray-100 rounded-lg'>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -53,7 +57,7 @@ const onSubmit = data =>{
                         <input
                             type='img'
                             className=' p-4  w-full rounded-lg'
-                            defaultValue=""
+                            defaultValue={picture}
                             placeholder='photo url'
                             {...register("picture")}
 
@@ -65,7 +69,7 @@ const onSubmit = data =>{
                         <input
                             type='text'
                             className=' p-4  w-full rounded-lg'
-                            defaultValue=""
+                            defaultValue={name}
                             placeholder='Enter name '
                             {...register("name")}
 
@@ -78,7 +82,7 @@ const onSubmit = data =>{
                         <label className=' m-2 font-bold text-2xl'>Seller Name</label> <br />
                         <input
                             className=' p-4  w-full rounded-lg'
-                           value={name}
+                            defaultValue={seller_name}
                             type='text'
                             placeholder='seller name'
                             {...register("seller_name")}
@@ -101,7 +105,8 @@ const onSubmit = data =>{
 
                 {/* to do some thing */}
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 m-4 '>
-                    <select {...register("subcategory")}>
+                    <select
+                        defaultValue={subcategory} {...register("subcategory")}>
                         <option value="Vintage Cars">Vintage Cars</option>
                         <option value="Off-Road Vehicles">Off-Road Vehicles</option>
                         <option value="Sports Cars">Sports Cars</option>
@@ -112,7 +117,7 @@ const onSubmit = data =>{
                         <input
                             className=' p-4  w-full rounded-lg'
                             type=''
-                            defaultValue=""
+                            defaultValue={price}
                             placeholder='Enter price '
                             {...register("price")}
 
@@ -126,7 +131,7 @@ const onSubmit = data =>{
                         <input
                             className=' p-4  w-full rounded-lg'
                             type=''
-                            defaultValue=""
+                            defaultValue={rating}
                             placeholder='rating'
                             {...register("rating")}
 
@@ -138,7 +143,7 @@ const onSubmit = data =>{
                         <input
                             className=' p-4  w-full rounded-lg'
                             type='text'
-                            defaultValue=""
+                            defaultValue={availableQuantity}
                             placeholder='available quantity'
                             {...register("availableQuantity")}
 
@@ -152,7 +157,7 @@ const onSubmit = data =>{
                     <textarea
                         className=' p-4  w-full rounded-lg'
                         type='text'
-                        defaultValue=""
+                        defaultValue={detailDescription}
                         placeholder='description'
                         {...register("detailDescription")}
 
@@ -167,4 +172,4 @@ const onSubmit = data =>{
     );
 };
 
-export default AddToy;
+export default UpDate;
