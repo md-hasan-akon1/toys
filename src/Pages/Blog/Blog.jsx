@@ -7,7 +7,9 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
+import UseTitle from '../../CostomHook/UseTitle';
 const Blog = () => {
+    UseTitle('Bolg')
     return (
         <div>
             <div className="hero min-h-screen" style={{ backgroundImage: `url("https://i.ibb.co/Tw0GF2C/blog.jpg")` }}>
