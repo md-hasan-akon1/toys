@@ -13,14 +13,14 @@ const MyToys = () => {
     UseTitle('my toys')
     const { user } = useContext(authContext)
     const [myToys, setMyToys] = useState([])
-    const [sorted, setSorted] = useState('')
-    const url = `http://localhost:5000/myToys?email=${user?.email}`
+    const [sorted, setSorted] = useState('ascending')
+    const url = `http://localhost:5000/myToys?email=${user?.email}&&sort=${sorted}`
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setMyToys(data))
-    }, [])
+    }, [sorted])
     const handelDelete = (id) => {
         swal({
             title: "Are you sure?",
@@ -55,20 +55,19 @@ const MyToys = () => {
     const handelSorted = (e) => {
         setSorted(e.target.value)
     }
-    useEffect(() => {
-        console.log(sorted)
-
-        
-    }, [sorted])
+   console.log(sorted)
     return (
 
         <div className="overflow-x-auto">
             <h1 className='text-center text-3xl font-bold'> My Toy </h1>
+            <div className='flex justify-start items-center gap-2'>
+            <p className='text-gray-600 font-extrabold  '>Sorted By Price </p>
             <select onChange={handelSorted} className="select select-bordered w-full max-w-xs">
-                <option value=''>all data </option>
+                
                 <option value='ascending'>ascending </option>
                 <option value='descending'>descending</option>
             </select>
+            </div>
             <table className="table table-zebra w-full">
                 {/* head */}
                 <thead>
