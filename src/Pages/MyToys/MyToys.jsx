@@ -2,11 +2,18 @@ import React, { useContext, useEffect, useState } from 'react';
 import UseTitle from '../../CostomHook/UseTitle';
 import { authContext } from '../../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
+
+
+
+// CommonJS
+
 
 const MyToys = () => {
     UseTitle('my toys')
     const { user } = useContext(authContext)
     const [myToys, setMyToys] = useState([])
+    const [sorted, setSorted] = useState('')
     const url = `http://localhost:5000/myToys?email=${user?.email}`
 
     useEffect(() => {
@@ -15,21 +22,53 @@ const MyToys = () => {
             .then(data => setMyToys(data))
     }, [])
     const handelDelete = (id) => {
-        fetch(`http://localhost:5000/addDataDetail/${id}`, {
-            method: 'DELETE'
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this toy data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
         })
-            .then(res => res.json())
-            .then(data => {
-            const remaining=myToys.filter(toy=>toy._id!==id)
-            setMyToys(remaining)
-                if (data.deletedCount > 0) {
-                    alert("delete success")
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(`http://localhost:5000/addDataDetail/${id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            const remaining = myToys.filter(toy => toy._id !== id)
+                            setMyToys(remaining)
+                            if (data.deletedCount > 0) {
+                                swal("opps! Your toy data  has been deleted!", {
+                                    icon: "success",
+                                })
+
+                            }
+                        })
+
+                } else {
+                    swal("Your toy data is safe!");
                 }
-            })
+            });
+
     }
+    const handelSorted = (e) => {
+        setSorted(e.target.value)
+    }
+    useEffect(() => {
+        console.log(sorted)
+
+        
+    }, [sorted])
     return (
 
         <div className="overflow-x-auto">
+            <h1 className='text-center text-3xl font-bold'> My Toy </h1>
+            <select onChange={handelSorted} className="select select-bordered w-full max-w-xs">
+                <option value=''>all data </option>
+                <option value='ascending'>ascending </option>
+                <option value='descending'>descending</option>
+            </select>
             <table className="table table-zebra w-full">
                 {/* head */}
                 <thead>

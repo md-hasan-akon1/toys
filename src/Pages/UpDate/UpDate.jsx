@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { authContext } from '../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import { useLoaderData, useParams } from 'react-router-dom';
-
+import 'react-toastify/dist/ReactToastify.css';
 const UpDate = () => {
     const { user } = useContext(authContext)
 
@@ -27,17 +27,16 @@ const UpDate = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    <ToastContainer />
-                    toast.success('🦄 Wow so easy!', {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    toast.success('🦄 Toy Detail Update successfully', {
+                       position: "top-center",
+                       autoClose: 5000,
+                       hideProgressBar: false,
+                       closeOnClick: true,
+                       pauseOnHover: true,
+                       draggable: true,
+                       progress: undefined,
+                       theme: "light",
+                   });
                 }
             })
             .catch(error => console.log(error))
@@ -168,6 +167,7 @@ const UpDate = () => {
                 </div>
 
             </form>
+            <ToastContainer />
         </div>
     );
 };

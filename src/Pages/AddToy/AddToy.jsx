@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import UseTitle from '../../CostomHook/UseTitle';
 import { useForm } from "react-hook-form";
 import { authContext } from '../../AuthProvider/AuthProvider';
+import { useLoaderData, useParams } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 const AddToy = () => {
     const {user}=useContext(authContext)
@@ -22,8 +24,8 @@ const onSubmit = data =>{
     .then(data=>{
         
     if(data.insertedId){
-        <ToastContainer />
-        toast.success('🦄 Wow so easy!', {
+       
+        toast.success('🦄 Toy Data Added successfully !', {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -164,6 +166,7 @@ const onSubmit = data =>{
                 </div>
 
             </form>
+            <ToastContainer />
         </div>
     );
 };

@@ -5,6 +5,8 @@ import Gallery from '../../Sheared/Gallery/Gallery';
 
 import CategoryTab from '../../Sheared/CategoryTab/CategoryTab';
 import { ToastContainer } from 'react-toastify';
+import SwiperSection from '../SwiperSection/SwiperSection';
+import NewProduct from '../../Sheared/NewProduct/NewProduct';
 
 const Home = () => {
     UseTitle('home')
@@ -37,6 +39,13 @@ const Home = () => {
             <section className='mt-10'>
                 <CategoryTab></CategoryTab>
             </section>
+            {/* extra section-1 */}
+            <h1 className=' text-center font-mono font-bold text-5xl mt-5 mb-3'>Our Customer Review</h1>
+            <SwiperSection></SwiperSection>
+
+            {/* extra section-2 */}
+            <h1 className=' text-center font-mono font-bold text-5xl mt-5 mb-3'>Our New Product</h1>
+            <NewProduct></NewProduct>
         </div>
     );
 };
