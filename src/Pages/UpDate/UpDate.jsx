@@ -16,7 +16,7 @@ const UpDate = () => {
     const [updateData, setUpdateData] = useState({})
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch(`http://localhost:5000/update/${_id}`, {
+        fetch(`https://assignment-11-server-phi-five.vercel.app/update/${_id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

@@ -18,10 +18,10 @@ const NavigationBar = () => {
             user ? <>
                 <li> <Link to="/myToys">My toys</Link></li>
                 <li> <Link to="/addtoy">Add Toy</Link></li>
-                <li> <button onClick={handelLogOut}>logOut</button></li>
+              
             </> :
                 <>
-                    <li> <Link to="/login">LogIn</Link></li>
+                   
                     <li> <Link to="/register">Register</Link></li>
                 </>
         }
@@ -55,9 +55,11 @@ const NavigationBar = () => {
                 <div className="navbar-end">
                     <div>
                         {
-                            user?.photoURL ? <div >
+                            user?.photoURL ? <div className='flex gap-2' >
                                 <img title={user.displayName} className="w-12 rounded-full" src={user.photoURL} />
-                            </div> : ""
+                                <button className="btn btn-warning" onClick={handelLogOut}>logOut</button>
+                            </div> :  <Link to="/login"><button className="btn btn-primary">LogIn</button></Link>
+                            
                         }
                     </div>
                 </div>

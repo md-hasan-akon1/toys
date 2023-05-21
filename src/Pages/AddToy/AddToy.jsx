@@ -13,7 +13,7 @@ const AddToy = () => {
     const [addData,setAddData]=useState({})
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 const onSubmit = data =>{
-    fetch('http://localhost:5000/addtoys',{
+    fetch('https://assignment-11-server-phi-five.vercel.app/addtoys',{
         method:'POST',
         headers:{
             'content-type':'application/json'

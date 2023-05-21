@@ -12,7 +12,7 @@ const Home = () => {
     UseTitle('home')
     const [photos, setPhoto] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/imgData')
+        fetch('https://assignment-11-server-phi-five.vercel.app/imgData')
             .then(res => res.json())
             .then(data => setPhoto(data))
 

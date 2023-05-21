@@ -8,7 +8,7 @@ const ViewDetails = () => {
     UseTitle('view detail-all toys')
     const [singleData, setSingleData] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/viewDetail/${id}`)
+        fetch(`https://assignment-11-server-phi-five.vercel.app/viewDetail/${id}`)
             .then(res => res.json())
             .then(data => setSingleData(data[0]))
     }, [])

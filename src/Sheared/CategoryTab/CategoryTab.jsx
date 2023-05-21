@@ -9,7 +9,7 @@ const CategoryTab = () => {
     const [CategoryData, setCategoryData] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/data/${category}`)
+        fetch(`https://assignment-11-server-phi-five.vercel.app/data/${category}`)
             .then(res => res.json())
             .then(data => setCategoryData(data))
     }, [category])

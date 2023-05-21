@@ -14,6 +14,7 @@ import AddToy from "../Pages/AddToy/AddToy";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import AddedDataDetail from "../Pages/AddedDataDetail/AddedDataDetail";
 import UpDate from "../Pages/UpDate/UpDate";
+import Blog from "../Pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +62,11 @@ const router = createBrowserRouter([
       {
         path: '/myToys/update/:id',
         element: <PrivetRout><UpDate></UpDate></PrivetRout>,
-        loader: ({ params }) => fetch(`http://localhost:5000/addDataDetail/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-11-server-phi-five.vercel.app/addDataDetail/${params.id}`)
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
       }
     ]
   },

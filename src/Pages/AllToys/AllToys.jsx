@@ -7,14 +7,14 @@ const AllToys = () => {
     const [searchText, setSearchText] = useState('')
     const [allToys, setAllToys] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allToys')
+        fetch('https://assignment-11-server-phi-five.vercel.app/allToys')
             .then(res => res.json())
             .then(data => setAllToys(data))
 
     }, [])
     const handelSearch = () => {
 
-        fetch(`http://localhost:5000/allToys/${searchText}`)
+        fetch(`https://assignment-11-server-phi-five.vercel.app/allToys/${searchText}`)
             .then(res => res.json())
             .then(data => setAllToys(data))
 

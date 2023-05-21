@@ -14,7 +14,7 @@ const MyToys = () => {
     const { user } = useContext(authContext)
     const [myToys, setMyToys] = useState([])
     const [sorted, setSorted] = useState('ascending')
-    const url = `http://localhost:5000/myToys?email=${user?.email}&&sort=${sorted}`
+    const url = `https://assignment-11-server-phi-five.vercel.app/myToys?email=${user?.email}&&sort=${sorted}`
 
     useEffect(() => {
         fetch(url)
@@ -31,7 +31,7 @@ const MyToys = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/addDataDetail/${id}`, {
+                    fetch(`https://assignment-11-server-phi-five.vercel.app/addDataDetail/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
@@ -55,18 +55,18 @@ const MyToys = () => {
     const handelSorted = (e) => {
         setSorted(e.target.value)
     }
-   console.log(sorted)
+    console.log(sorted)
     return (
 
         <div className="overflow-x-auto">
             <h1 className='text-center text-3xl font-bold'> My Toy </h1>
             <div className='flex justify-start items-center gap-2'>
-            <p className='text-gray-600 font-extrabold  '>Sorted By Price </p>
-            <select onChange={handelSorted} className="select select-bordered w-full max-w-xs">
-                
-                <option value='ascending'>ascending </option>
-                <option value='descending'>descending</option>
-            </select>
+                <p className='text-gray-600 font-extrabold  '>Sorted By Price </p>
+                <select onChange={handelSorted} className="select select-bordered w-full max-w-xs">
+
+                    <option value='ascending'>ascending </option>
+                    <option value='descending'>descending</option>
+                </select>
             </div>
             <table className="table table-zebra w-full">
                 {/* head */}
